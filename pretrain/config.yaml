@@ -1,4 +1,4 @@
-network:
+1network:
   # ecg_model: resnet18
   ecg_model: vit_tiny
   num_leads: 12
