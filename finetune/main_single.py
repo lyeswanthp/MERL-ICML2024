@@ -153,13 +153,13 @@ def main():
         
         model.load_state_dict(ckpt, strict=False)
         print(f'load pretrained model from {args.pretrain_path}, the backbone is {args.backbone}, using {args.num_leads} leads')
-        if 'linear' in args.name:
-            for param in model.parameters():
-                param.requires_grad = False
-            print(f'freeze backbone for {args.name} with {args.backbone}')
+        #if 'linear' in args.name:
+        #    for param in model.parameters():
+        #        param.requires_grad = False
+        #    print(f'freeze backbone for {args.name} with {args.backbone}')
             
-        for param in model.linear.parameters():
-            param.requires_grad = True
+        #for param in model.linear.parameters():
+        #    param.requires_grad = True
 
     if 'vit' in args.backbone:
         if args.backbone == 'vit_tiny':
@@ -173,10 +173,10 @@ def main():
         
         model.load_state_dict(ckpt, strict=False)
         print(f'load pretrained model from {args.pretrain_path}, the backbone is {args.backbone}, using {args.num_leads} leads')
-        if 'linear' in args.name:
-            for param in model.parameters():
-                param.requires_grad = False
-            print(f'freeze backbone for {args.name} with {args.backbone}')
+        #if 'linear' in args.name:
+        #    for param in model.parameters():
+        #        param.requires_grad = False
+        #    print(f'freeze backbone for {args.name} with {args.backbone}')
 
         model.reset_head(num_classes=num_classes)
         model.head.weight.requires_grad = True
